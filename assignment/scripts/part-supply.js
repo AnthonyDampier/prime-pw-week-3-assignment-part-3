@@ -5,6 +5,7 @@ console.log('****** Part Supply *******');
 //    & console.log the variable
 console.log('1. Number of partsNeeded:');
 let partsNeeded = 40;
+console.log(partsNeeded);
 
 // 2. Create a variable call 'supplyChanges' set it to an array containing
 //    the following numbers: 3, 5, -6, 0, 7, 11
@@ -25,7 +26,7 @@ console.log(removedSupply);
 // 5. A delivery of 25 more parts arrived. Add the value 25 to the end of the array
 console.log('5. Adding 25 to supplyChanges.');
 supplyChanges.push(25);
-//console.log(supplyChanges); //checking for the push of '25' to end of array.
+console.log(supplyChanges); //checking for the push of '25' to end of array.
 
 // 6. Write a `for` loop that shows each value in the 'supplyChanges' array
 //    Use a console.log formatted as follows, where x is the value from the array
@@ -34,27 +35,43 @@ supplyChanges.push(25);
 //    - if the value is negative, format the log as 'Removed x parts.' 
 console.log('6. Showing supplyChanges...');
 for (let i = 0; i <= supplyChanges.length; i++) {
-    console.log(supplyChanges[i]);
+    //console.log(supplyChanges[i]);
     if (supplyChanges[i] > 0){
-        console.log('addes', supplyChanges[i], 'parts.')
-    } else if (supplyChanges[i] = 0){
+        console.log('Added', supplyChanges[i], 'parts.')
+    }
+    if (supplyChanges[i] == 0){
         console.log('No Change.')
-    } else if (supplyChanges[i] < 0) {
+    }
+    if (supplyChanges[i] < 0) {
         console.log('Removed', supplyChanges[i], 'parts.')
-    } else {
-        console.log('Error Occured')
     }
 }
-
-
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
 // 7. Rewrite the `for` loop from #6 as a `for of` loop. 
 console.log('7. Showing supplyChanges with "for of" loop');
+console.log(supplyChanges);
+for (let parts of supplyChanges){
+    //console.log(parts);
+    if (parts > 0){
+        console.log('Added', parts, 'parts.')
+    }
+    if (parts == 0){
+        console.log('No Change.')
+    }
+    if (parts < 0) {
+        console.log('Removed', parts, 'parts.')
+    }
+}
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
 console.log('8. Total supplies available is:');
+let totalSupply = 0;
+for (let parts of supplyChanges){
+    totalSupply += parts;
+}
+console.log(totalSupply);
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
@@ -63,3 +80,10 @@ console.log('8. Total supplies available is:');
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
+let parts = 572;
+let boxCapacity = 7;
+let boxesNeeded = 0;
+for (let i = 0; i <=572; i+=boxCapacity){
+    boxesNeeded++;
+}
+console.log('We need', boxesNeeded,'.');
